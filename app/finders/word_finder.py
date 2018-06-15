@@ -58,8 +58,8 @@ def _get_words(self, letters_string, pattern):
     pattern_letters = _get_letters_from(pattern)
     letters_string =  _gen_regex(letters_string, pattern)
 
-    # print('orig_letters_string', orig_letters_string)
-    # print('letters_string', letters_string)
+    print('orig_letters_string', orig_letters_string)
+    print('letters_string', letters_string)
 
     words = self._anagram_finder._words
     for word in words:
@@ -85,6 +85,9 @@ def _gen_regex (letters_string, pattern):
             i = j
             regex_pattern += '[' + letters_string + ']{' + str(cnt) + '}'
         i+=1
+
+    if (regex_pattern == pattern):
+        regex_pattern = '\w*' + regex_pattern + '\w*'
     return regex_pattern
             
 
